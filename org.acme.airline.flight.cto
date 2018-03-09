@@ -1,0 +1,16 @@
+namespace org.acme.airline.flight
+import org.acme.airline.aircraft.Aircraft
+
+asset Flight identified by flightId{
+  o String flightId regex=/[A-Z]{2}[0-9]{3}-[0-9][0-9]-[0-9][0-9]-[0-2][[0-9][0-9][0-9]/
+  o String flightNumber 
+  o Route route
+  o String[] aliasFlightNumbers
+  --> Aircraft aircraft optional
+}
+
+concept Route{
+  o String sourceAddress regex=/[A-Z][A-Z][A-Z]/
+  o String destinationAddress regex=/[A-Z][A-Z][A-Z]/
+  o DateTime scheduleTimestamp
+}
